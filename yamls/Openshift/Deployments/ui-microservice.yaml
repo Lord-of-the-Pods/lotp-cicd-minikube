@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ui-microservice
+  name: ui-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ui-microservice
+  template:
+    metadata:
+      labels:
+        app: ui-microservice
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/grahasti/ui-microservice-is:20
+        imagePullPolicy: Always
+        name: ui-microservice
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+

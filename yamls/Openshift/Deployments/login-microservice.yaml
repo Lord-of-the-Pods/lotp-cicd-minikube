@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: login-microservice
+  name: login-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: login-microservice
+    template:
+      metadata:
+        labels:
+          app: login-microservice
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/grahasti/login-microservice-is:18
+        imagePullPolicy: Always
+        name: login-microservice
+        ports:
+        - containerPort: 8080
+          protocol: TCP
