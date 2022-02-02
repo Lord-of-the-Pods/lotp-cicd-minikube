@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: login-microservice-pipeline
-  namespace: grahasti
 spec:
   params:
   - default: xxxxx
@@ -33,9 +32,6 @@ spec:
     - name: output
       workspace: shared-workspace
   - name: maven-build
-    params:
-    - name: appName
-      value: xxx
     runAfter:
     - git-clone
     taskRef:

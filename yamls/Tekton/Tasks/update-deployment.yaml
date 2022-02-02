@@ -1,13 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  creationTimestamp: "2022-01-01T06:45:39Z"
-  generation: 1
   name: update-deployment
-  namespace: grahasti
-  resourceVersion: "3423710"
-  selfLink: /apis/tekton.dev/v1beta1/namespaces/grahasti/tasks/update-deployment
-  uid: ef1a1b81-e618-4c59-9dd7-dcdca12a8025
 spec:
   params:
   - description: The name of the deployment patch the image

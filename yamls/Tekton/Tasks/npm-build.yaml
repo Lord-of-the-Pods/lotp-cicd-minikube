@@ -1,20 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  annotations:
-    tekton.dev/categories: Build Tools
-    tekton.dev/pipelines.minVersion: 0.17.0
-    tekton.dev/platforms: linux/amd64,linux/s390x,linux/ppc64le
-    tekton.dev/tags: build-tool
-  creationTimestamp: "2022-01-01T08:23:01Z"
-  generation: 1
-  labels:
-    app.kubernetes.io/version: "0.1"
   name: npm-build
-  namespace: grahasti
-  resourceVersion: "3529818"
-  selfLink: /apis/tekton.dev/v1beta1/namespaces/grahasti/tasks/npm-build
-  uid: 64f18c67-f5fa-420f-9153-512c538d3f9c
 spec:
   description: |-
     This task can be used to run npm goals on a project.

@@ -2,7 +2,6 @@ apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   name: login-microservice-is
-  namespace: grahasti
 spec:
   lookupPolicy:
     local: false

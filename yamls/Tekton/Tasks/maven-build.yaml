@@ -1,17 +1,8 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  creationTimestamp: "2022-01-01T06:45:10Z"
-  generation: 1
   name: maven-build
-  namespace: grahasti
-  resourceVersion: "3423155"
-  selfLink: /apis/tekton.dev/v1beta1/namespaces/grahasti/tasks/maven-build
-  uid: 95762c1b-d429-4df8-bdab-6125a9df8d20
 spec:
-  params:
-  - name: appName
-    type: string
   steps:
   - args:
     - install

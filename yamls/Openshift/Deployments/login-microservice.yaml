@@ -9,10 +9,10 @@ spec:
   selector:
     matchLabels:
       app: login-microservice
-    template:
-      metadata:
-        labels:
-          app: login-microservice
+  template:
+    metadata:
+      labels:
+        app: login-microservice
     spec:
       containers:
       - image: image-registry.openshift-image-registry.svc:5000/grahasti/login-microservice-is:18

@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: ui-microservice-pipeline
-  namespace: grahasti
 spec:
   params:
   - default: xxxxx
