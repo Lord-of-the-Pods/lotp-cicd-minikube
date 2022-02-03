@@ -99,5 +99,28 @@ spec:
     taskRef:
       kind: Task
       name: update-deployment
+  - name: gitops-task
+    params:
+      - name: configGitUrl
+        value: >-
+          https://dev.azure.com/grahasti/POC-cloud-native/_git/grahasti-openshift-resources.git
+      - name: environment
+        value: dev
+      - name: imageName
+        value: >-
+          image-registry.openshift-image-registry.svc:5000/testing/login-microservice-is:$(params.git-pushid)
+      - name: userName
+        value: vishnoi.abhishek
+      - name: userEmail
+        value: vishnoi.abhishek@hotmail.com
+    runAfter:
+      - update-deployment
+    taskRef:
+      kind: Task
+      name: gitops-task
+    workspaces:
+      - name: gitops-workspace
+        workspace: shared-workspace
+
   workspaces:
   - name: shared-workspace
