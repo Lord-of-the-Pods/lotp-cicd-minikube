@@ -104,8 +104,10 @@ spec:
       - name: configGitUrl
         value: >-
           https://dev.azure.com/grahasti/POC-cloud-native/_git/grahasti-openshift-resources
-      - name: environment
-        value: dev
+      - name: path
+        value: yamls/Openshift/Deployments
+      - name: fileName
+        value: login-microservice.yaml
       - name: imageName
         value: >-
           image-registry.openshift-image-registry.svc:5000/grahasti/login-microservice-is:$(params.git-pushid)

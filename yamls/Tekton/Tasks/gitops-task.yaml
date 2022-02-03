@@ -6,7 +6,9 @@ spec:
   params:
     - name: configGitUrl
       type: string
-    - name: environment
+    - name: path
+      type: string
+    - name: fileName
       type: string
     - name: imageName
       type: string
@@ -31,13 +33,13 @@ spec:
 
         git clone -b master $(inputs.params.configGitUrl) gitops
 
-        cd gitops/$(inputs.params.environment)
+        cd gitops/$(inputs.params.path)
 
 
         echo "Updating yaml"
 
         sed -i "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image:
-        $(inputs.params.imageName)#" deployment.yaml
+        $(inputs.params.imageName)#" $(inputs.params.filename)
 
         cat deployment.yaml
 
