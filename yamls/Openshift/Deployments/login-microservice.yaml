@@ -15,7 +15,7 @@ spec:
         app: login-microservice
     spec:
       containers:
-      - image: quay.io/abvishno/oc-pipelines-login-microservice
+      - image: quay.io/abvishno/oc-pipelines-login-microservice:latest
         imagePullPolicy: Always
         name: login-microservice
         ports:

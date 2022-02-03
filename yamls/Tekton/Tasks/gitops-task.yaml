@@ -38,8 +38,7 @@ spec:
 
         echo "Updating yaml"
 
-        sed -i "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image:
-        $(inputs.params.imageName)#" $(inputs.params.fileName)
+        sed "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image: $(inputs.params.imageName)#" $(inputs.params.fileName)
 
         cat $(inputs.params.fileName)
 
