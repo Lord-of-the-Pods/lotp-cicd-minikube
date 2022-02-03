@@ -108,7 +108,7 @@ spec:
         value: dev
       - name: imageName
         value: >-
-          image-registry.openshift-image-registry.svc:5000/testing/login-microservice-is:$(params.git-pushid)
+          image-registry.openshift-image-registry.svc:5000/grahasti/login-microservice-is:$(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail
