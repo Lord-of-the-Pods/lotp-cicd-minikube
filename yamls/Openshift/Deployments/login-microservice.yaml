@@ -15,7 +15,7 @@ spec:
         app: login-microservice
     spec:
       containers:
-      - image: quay.io/abvishno/oc-pipelines-login-microservice:latest
+      - image:image-registry.openshift-image-registry.svc:5000/grahasti/login-microservice-is:14
         imagePullPolicy: Always
         name: login-microservice
         ports:
