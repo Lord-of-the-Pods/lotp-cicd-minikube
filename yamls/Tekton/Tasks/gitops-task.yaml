@@ -1,0 +1,51 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: gitops-task
+spec:
+  params:
+    - name: configGitUrl
+      type: string
+    - name: environment
+      type: string
+    - name: imageName
+      type: string
+    - name: userName
+      type: string
+    - name: userEmail
+      type: string
+  steps:
+    - image: 'alpine/git:v2.26.2'
+      name: update-yaml
+      resources: {}
+      script: >
+        #!/usr/bin/env sh
+
+        set -e
+
+        git config --global user.email "$(inputs.params.userEmail)"
+
+        git config --global user.name "$(inputs.params.userName)"
+
+        rm -rf gitops
+
+        git clone -b main $(inputs.params.configGitUrl) gitops
+
+        cd gitops/$(inputs.params.environment)
+
+
+        echo "Updating yaml"
+
+        sed -i "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image:
+        $(inputs.params.imageName)#" deployment.yaml
+
+        cat deployment.yaml
+
+        git add -u
+
+        git commit -m "[tekton] updating deployment"
+
+        git push
+      workingDir: $(workspaces.gitops-workspace.path)
+  workspaces:
+    - name: gitops-workspace
