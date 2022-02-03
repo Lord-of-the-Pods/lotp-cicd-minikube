@@ -41,7 +41,7 @@ spec:
         sed -i "s#image: [a-zA-Z0-9|.\/|-]*:[a-zA-Z0-9|.]*#image:
         $(inputs.params.imageName)#" $(inputs.params.fileName)
 
-        cat deployment.yaml
+        cat $(inputs.params.fileName)
 
         git add -u
 
