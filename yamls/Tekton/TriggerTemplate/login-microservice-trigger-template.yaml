@@ -18,6 +18,7 @@ spec:
         tekton.dev/pipeline: login-microservice-pipeline
       namespace: grahasti
     spec:
+      serviceAccountName: pipeline-run-sa
       params:
       - name: git-repo-name
         value: $(tt.params.git-repo-name)
