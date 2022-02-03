@@ -15,7 +15,7 @@ spec:
         app: ui-microservice
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/grahasti/ui-microservice-is:20
+      - image: quay.io/abvishno/oc-pipelines-ui-microservice
         imagePullPolicy: Always
         name: ui-microservice
         ports:
