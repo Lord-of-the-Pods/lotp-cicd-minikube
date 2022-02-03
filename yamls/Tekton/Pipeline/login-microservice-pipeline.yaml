@@ -103,7 +103,7 @@ spec:
     params:
       - name: configGitUrl
         value: >-
-          https://dev.azure.com/grahasti/POC-cloud-native/_git/grahasti-openshift-resources.git
+          https://dev.azure.com/grahasti/POC-cloud-native/_git/grahasti-openshift-resources
       - name: environment
         value: dev
       - name: imageName
