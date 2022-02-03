@@ -29,7 +29,7 @@ spec:
 
         rm -rf gitops
 
-        git clone -b main $(inputs.params.configGitUrl) gitops
+        git clone -b master $(inputs.params.configGitUrl) gitops
 
         cd gitops/$(inputs.params.environment)
 
