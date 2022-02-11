@@ -15,7 +15,7 @@ spec:
         app: login-microservice
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/grahasti/login-microservice-is:48/grahasti/login-microservice-is:47/grahasti/login-microservice-is:45/grahasti/login-microservice-is:44/grahasti/login-microservice-is:43/grahasti/login-microservice-is:14
+      - image: image-registry.openshift-image-registry.svc:5000/grahasti/login-microservice-is:49/grahasti/login-microservice-is:48/grahasti/login-microservice-is:47/grahasti/login-microservice-is:45/grahasti/login-microservice-is:44/grahasti/login-microservice-is:43/grahasti/login-microservice-is:14
         imagePullPolicy: Always
         name: login-microservice
         ports:
