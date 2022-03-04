@@ -15,7 +15,7 @@ spec:
         app: account-microservice
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/grahasti/account-microservice-is:70
+      - image: image-registry.openshift-image-registry.svc:5000/grahasti/account-microservice-is:1
         imagePullPolicy: Always
         name: account-microservice
         ports:
