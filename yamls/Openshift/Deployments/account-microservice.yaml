@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: account-microservice
+  name: account-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: account-microservice
+  template:
+    metadata:
+      labels:
+        app: account-microservice
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/grahasti/account-microservice-is:70
+        imagePullPolicy: Always
+        name: account-microservice
+        ports:
+        - containerPort: 8080
+          protocol: TCP
