@@ -4,7 +4,6 @@ metadata:
   name: event-listener-ui-microservice
 spec:
   namespaceSelector: {}
-  podTemplate: {}
   resources: {}
   serviceAccountName: pipeline
   triggers:
