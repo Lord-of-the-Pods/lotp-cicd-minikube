@@ -21,3 +21,10 @@ spec:
         ports:
         - containerPort: 8080
           protocol: TCP
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: login-microservice-config
