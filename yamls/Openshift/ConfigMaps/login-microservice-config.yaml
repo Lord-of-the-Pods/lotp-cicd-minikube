@@ -6,5 +6,5 @@ metadata:
 data:
   application.properties: |
     server.ssl.enabled=false
-    url.user.microservice.getUsers=http://localhost:8082/api/getUsers
-    url.user.microservice.addUser=http://localhost:8082/api/getUsers
+    url.user.microservice.getUsers=http://users-microservice-svc.grahasti.svc.cluster.local:8080/api/getUsers
+    url.user.microservice.addUser=http://users-microservice-svc.grahasti.svc.cluster.local:8080/api/getUsers
