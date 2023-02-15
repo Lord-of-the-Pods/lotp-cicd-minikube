@@ -103,7 +103,7 @@ spec:
     params:
       - name: configGitUrl
         value: >-
-          https://dev.azure.com/lotp/POC-cloud-native/_git/lotp-openshift-resources
+          https://github.com/Lord-of-the-Pods/login-microservice.git
       - name: path
         value: yamls/Openshift/Deployments
       - name: fileName
