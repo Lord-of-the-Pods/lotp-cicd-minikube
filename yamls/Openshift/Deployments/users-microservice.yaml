@@ -15,7 +15,7 @@ spec:
         app: users-microservice
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/grahasti/users-microservice-is:002
+      - image: image-registry.openshift-image-registry.svc:5000/lotp/users-microservice-is:002
         imagePullPolicy: Always
         name: users-microservice
         ports:

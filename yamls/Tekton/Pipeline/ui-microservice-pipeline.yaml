@@ -11,7 +11,7 @@ spec:
   - name: git-clone
     params:
     - name: url
-      value: https://dev.azure.com/grahasti/POC-cloud-native/_git/ui-microservice
+      value: https://dev.azure.com/lotp/POC-cloud-native/_git/ui-microservice
     - name: submodules
       value: "true"
     - name: depth
@@ -33,7 +33,7 @@ spec:
   - name: buildah
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/grahasti/ui-microservice-is
+      value: image-registry.openshift-image-registry.svc:5000/lotp/ui-microservice-is
     - name: BUILDER_IMAGE
       value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
     - name: STORAGE_DRIVER
@@ -57,7 +57,7 @@ spec:
   - name: buildah-tag
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/grahasti/ui-microservice-is:$(params.git-pushid)
+      value: image-registry.openshift-image-registry.svc:5000/lotp/ui-microservice-is:$(params.git-pushid)
     - name: BUILDER_IMAGE
       value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
     - name: STORAGE_DRIVER
@@ -83,7 +83,7 @@ spec:
     - name: deployment
       value: ui-microservice
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/grahasti/ui-microservice-is:$(params.git-pushid)
+      value: image-registry.openshift-image-registry.svc:5000/lotp/ui-microservice-is:$(params.git-pushid)
     runAfter:
     - buildah-tag
     taskRef:

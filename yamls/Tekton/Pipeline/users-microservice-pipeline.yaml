@@ -12,7 +12,7 @@ spec:
   - name: git-clone
     params:
     - name: url
-      value: https://dev.azure.com/grahasti/POC-cloud-native/_git/users-microservice
+      value: https://dev.azure.com/lotp/POC-cloud-native/_git/users-microservice
     - name: submodules
       value: "true"
     - name: depth
@@ -43,7 +43,7 @@ spec:
   - name: buildah
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/grahasti/users-microservice-is
+      value: image-registry.openshift-image-registry.svc:5000/lotp/users-microservice-is
     - name: BUILDER_IMAGE
       value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
     - name: STORAGE_DRIVER
@@ -67,7 +67,7 @@ spec:
   - name: buildah-tag
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/grahasti/users-microservice-is:$(params.git-pushid)
+      value: image-registry.openshift-image-registry.svc:5000/lotp/users-microservice-is:$(params.git-pushid)
     - name: BUILDER_IMAGE
       value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
     - name: STORAGE_DRIVER
@@ -93,7 +93,7 @@ spec:
     - name: deployment
       value: users-microservice
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/grahasti/users-microservice-is:$(params.git-pushid)
+      value: image-registry.openshift-image-registry.svc:5000/lotp/users-microservice-is:$(params.git-pushid)
     runAfter:
     - buildah-tag
     taskRef:
@@ -103,14 +103,14 @@ spec:
     params:
       - name: configGitUrl
         value: >-
-          https://dev.azure.com/grahasti/POC-cloud-native/_git/grahasti-openshift-resources
+          https://dev.azure.com/lotp/POC-cloud-native/_git/lotp-openshift-resources
       - name: path
         value: yamls/Openshift/Deployments
       - name: fileName
         value: users-microservice.yaml
       - name: imageName
         value: >-
-          image-registry.openshift-image-registry.svc:5000/grahasti/users-microservice-is:$(params.git-pushid)
+          image-registry.openshift-image-registry.svc:5000/lotp/users-microservice-is:$(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail

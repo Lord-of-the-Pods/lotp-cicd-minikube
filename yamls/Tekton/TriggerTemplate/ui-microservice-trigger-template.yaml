@@ -16,7 +16,7 @@ spec:
       generateName: ui-microservice-pipeline-$(tt.params.git-pushid)-
       labels:
         tekton.dev/pipeline: ui-microservice-pipeline
-      namespace: grahasti
+      namespace: lotp
     spec:
       params:
       - name: git-repo-name
