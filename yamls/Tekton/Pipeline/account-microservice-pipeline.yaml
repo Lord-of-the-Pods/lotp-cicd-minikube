@@ -12,7 +12,7 @@ spec:
   - name: git-clone
     params:
     - name: url
-      value: https://dev.azure.com/lotp/POC-cloud-native/_git/account-microservice
+      value: https://github.com/Lord-of-the-Pods/account-microservice.git
     - name: submodules
       value: "true"
     - name: depth
