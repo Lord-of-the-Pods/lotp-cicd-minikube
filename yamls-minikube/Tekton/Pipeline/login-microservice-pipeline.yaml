@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: account-microservice-pipeline
+  name: login-microservice-pipeline
 spec:
   params:
   - default: xxxxx
@@ -12,7 +12,7 @@ spec:
   - name: git-clone
     params:
     - name: url
-      value: https://github.com/Lord-of-the-Pods/account-microservice.git
+      value: https://github.com/Lord-of-the-Pods/login-microservice.git
     - name: submodules
       value: "true"
     - name: depth
@@ -43,7 +43,7 @@ spec:
   - name: buildah
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is
+      value: image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is
     - name: BUILDER_IMAGE
       value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
     - name: STORAGE_DRIVER
@@ -67,7 +67,7 @@ spec:
   - name: buildah-tag
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:$(params.git-pushid)
+      value: image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is:$(params.git-pushid)
     - name: BUILDER_IMAGE
       value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
     - name: STORAGE_DRIVER
@@ -91,9 +91,9 @@ spec:
   - name: update-deployment
     params:
     - name: deployment
-      value: account-microservice
+      value: login-microservice
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:$(params.git-pushid)
+      value: image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is:$(params.git-pushid)
     runAfter:
     - buildah-tag
     taskRef:
@@ -107,10 +107,10 @@ spec:
       - name: path
         value: yamls/Openshift/Deployments
       - name: fileName
-        value: account-microservice.yaml
+        value: login-microservice.yaml
       - name: imageName
         value: >-
-          image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:$(params.git-pushid)
+          image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is:$(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail
