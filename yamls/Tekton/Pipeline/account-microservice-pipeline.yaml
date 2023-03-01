@@ -82,17 +82,6 @@ spec:
     workspaces:
     - name: source
       workspace: shared-workspace
-  - name: update-deployment
-    params:
-    - name: deployment
-      value: account-microservice
-    - name: IMAGE
-      value: docker.io/abhishekkvvishnoi/lotp-account-microservice:$(params.git-pushid)
-    runAfter:
-    - buildah-tag
-    taskRef:
-      kind: Task
-      name: update-deployment
   - name: gitops-task
     params:
       - name: configGitUrl
