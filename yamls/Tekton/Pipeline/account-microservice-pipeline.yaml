@@ -63,7 +63,7 @@ spec:
   - name: buildah-tag
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:$(params.git-pushid)
+      value: docker.io/abhishekkvvishnoi/lotp-account-microservice:$(params.git-pushid)
     - name: STORAGE_DRIVER
       value: vfs
     - name: DOCKERFILE
