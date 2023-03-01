@@ -104,7 +104,7 @@ spec:
         value: account-microservice.yaml
       - name: imageName
         value: >-
-          image-registry.openshift-image-registry.svc:5000/lotp/account-microservice-is:$(params.git-pushid)
+          docker.io/abhishekkvvishnoi/lotp-account-microservice:$(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail
