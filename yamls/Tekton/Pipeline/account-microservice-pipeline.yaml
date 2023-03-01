@@ -99,7 +99,7 @@ spec:
         value: >-
           https://github.com/Lord-of-the-Pods/lotp-cicd-minikube.git
       - name: path
-        value: yamls/Openshift/Deployments
+        value: yamls/minikube/Deployments
       - name: fileName
         value: account-microservice.yaml
       - name: imageName
