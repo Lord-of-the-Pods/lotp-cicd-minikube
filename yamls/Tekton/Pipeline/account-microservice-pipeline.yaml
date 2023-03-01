@@ -110,7 +110,7 @@ spec:
       - name: userEmail
         value: vishnoi.abhishek@hotmail.com
     runAfter:
-      - update-deployment
+      - buildah
     taskRef:
       kind: Task
       name: gitops-task
