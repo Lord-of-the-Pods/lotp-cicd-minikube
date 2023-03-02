@@ -23,10 +23,8 @@ spec:
       value: "true"
     - name: verbose
       value: "true"
-    - name: gitInitImage
-      value: registry.redhat.io/openshift-pipelines/pipelines-git-init-rhel8@sha256:afc5d3f9efe26c7042635d43b8ffd09d67936e3d0b6b901dc08a33e20313d361
     taskRef:
-      kind: ClusterTask
+      kind: Task
       name: git-clone
     workspaces:
     - name: output
@@ -43,9 +41,7 @@ spec:
   - name: buildah
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is
-    - name: BUILDER_IMAGE
-      value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
+      value: docker.io/abhishekkvvishnoi/lotp-login-microservice
     - name: STORAGE_DRIVER
       value: vfs
     - name: DOCKERFILE
@@ -59,7 +55,7 @@ spec:
     runAfter:
     - maven-build
     taskRef:
-      kind: ClusterTask
+      kind: Task
       name: buildah
     workspaces:
     - name: source
@@ -67,9 +63,7 @@ spec:
   - name: buildah-tag
     params:
     - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is:$(params.git-pushid)
-    - name: BUILDER_IMAGE
-      value: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
+      value: docker.io/abhishekkvvishnoi/lotp-login-microservice:$(params.git-pushid)
     - name: STORAGE_DRIVER
       value: vfs
     - name: DOCKERFILE
@@ -83,40 +77,29 @@ spec:
     runAfter:
     - maven-build
     taskRef:
-      kind: ClusterTask
+      kind: Task
       name: buildah
     workspaces:
     - name: source
       workspace: shared-workspace
-  - name: update-deployment
-    params:
-    - name: deployment
-      value: login-microservice
-    - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is:$(params.git-pushid)
-    runAfter:
-    - buildah-tag
-    taskRef:
-      kind: Task
-      name: update-deployment
   - name: gitops-task
     params:
       - name: configGitUrl
         value: >-
-          https://github.com/Lord-of-the-Pods/lotp-cicd.git
+          https://github.com/Lord-of-the-Pods/lotp-cicd-minikube.git
       - name: path
-        value: yamls/Openshift/Deployments
+        value: yamls/minikube/Deployments
       - name: fileName
         value: login-microservice.yaml
       - name: imageName
         value: >-
-          image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is:$(params.git-pushid)
+          docker.io/abhishekkvvishnoi/lotp-login-microservice:$(params.git-pushid)
       - name: userName
         value: vishnoi.abhishek
       - name: userEmail
         value: vishnoi.abhishek@hotmail.com
     runAfter:
-      - update-deployment
+      - buildah
     taskRef:
       kind: Task
       name: gitops-task
