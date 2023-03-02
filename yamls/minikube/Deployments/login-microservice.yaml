@@ -15,7 +15,7 @@ spec:
         app: login-microservice
     spec:
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/lotp/login-microservice-is:002
+      - image: docker.io/abhishekkvvishnoi/lotp-login-microservice:002
         imagePullPolicy: Always
         name: login-microservice
         ports:
