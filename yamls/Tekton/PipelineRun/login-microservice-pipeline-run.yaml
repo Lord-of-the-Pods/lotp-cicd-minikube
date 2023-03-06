@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  annotations: {}
+  generateName: login-microservice-pipeline-run
+  labels:
+    app.kubernetes.io/instance: cicd
+    dashboard.tekton.dev/rerunOf: 001-r-7chvc
+  namespace: cicd
+spec:
+  params:
+    - name: git-pushid
+      value: '002'
+  pipelineRef:
+    name: login-microservice-pipeline
+  serviceAccountName: build-bot
+  timeouts:
+    pipeline: 1h0m0s
+  workspaces:
+    - name: shared-workspace
+      volumeClaimTemplate:
+        metadata:
+          creationTimestamp: null
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 500Mi
+        status: {}
